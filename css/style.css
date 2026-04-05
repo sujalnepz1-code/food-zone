@@ -1,3 +1,53 @@
-.h1 {
-  color: red;
+/*-- RESET & BASE--*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
 }
+body {
+  background-color: #fff;
+  color: #333;
+}
+/*--NAVBAR--*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #ff4500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.nav-logo h1{
+  color:#fff;
+  font-size: 24px;
+}
+.nav-links{
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+.nav-links a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.nav-links a:hover {
+  color:#ffe0d0;
+}
+.nav-btn{
+  background-color: #fff;
+  color: #ff4500;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.nav-btn:hover{
+  background-color: #ffe0d0;
+}
+
+
