@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+
+.nav-logo h1 {
+  background-color: yellow;
+  color: red;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-links li{ 
+  display: inline;
+  margin: 20px;
+  background-color: rgb(10, 238, 10);
+  color: #c21616;
+  border-radius: 5px;
+}
+ /* #Made changes in links to make them more visible and attractive, text color black  */
+.nav-links li a{
+  color: black;
+}
+=======
 /*-- RESET & BASE--*/
 * {
   margin: 0;
@@ -17,6 +40,7 @@ body {
   padding: 16px 40px;
   background-color: #ff4500;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 20px;
 }
 .nav-logo h1{
   color:#fff;
@@ -34,7 +58,7 @@ body {
   font-weight: 500;
 }
 .nav-links a:hover {
-  color:#ffe0d0;
+  color:#d0fdff;
 }
 .nav-btn{
   background-color: #fff;
@@ -104,3 +128,4 @@ body {
   color: #fff;
 }
 
+>>>>>>> a8a325f4d0b2f0d597ead0c84d60d04e7aeff90d
