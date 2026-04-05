@@ -49,5 +49,58 @@ body {
 .nav-btn:hover{
   background-color: #ffe0d0;
 }
-
+/*--Hero Section--*/
+.hero{
+  background-color: #fff5f0;
+  padding: 80px 40px;
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+}
+.hero-content {
+  max-width: 600px;
+}
+.hero-content h1{
+  font-size: 48px;
+  color: #ff4500;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.hero-content p{
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.hero-buttons{
+  display: flex;
+  gap: 16px;
+}
+.btn-primary{
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700px;
+  cursor: pointer;
+}
+.btn-primary:hover{
+  background-color:#e03d00;
+}
+.btn-secondary{                               
+  background-color: transparent;
+  color: #ff4500;
+  border: 2px solid #ff4500;
+  padding: 14px 32px;                     
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-secondary:hover{
+  background-color: #ff4500;
+  color: #fff;
+}
 
