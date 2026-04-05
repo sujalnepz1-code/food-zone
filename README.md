@@ -5,4 +5,4 @@ A food e-commerce website built by Kushal and the team.
 ## Team
 - Kushal — Frontend Lead
 - Joseph — JavaScript Lead  
-- Sujal — Git Manager
+- Sujal — Git Manager & Database
