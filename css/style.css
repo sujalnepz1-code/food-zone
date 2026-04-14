@@ -50,6 +50,44 @@ body {
 .nav-btn:hover{
   background-color: #ffe0d0;
 }
+/* Cart icon in navbar */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;               /* comfortable space between cart and button */
+}
+
+.nav-cart {
+  position: relative;       /* anchor for absolute badge */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 28px;          /* larger, more prominent basket */
+  line-height: 1;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: #fff;
+  color: #ff4500;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 50%;       /* perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ff4500; /* ties in with brand color */
+  line-height: 1;
+}
 /*--Hero Section--*/
 .hero{
   background-color: #fff5f0;
@@ -140,21 +178,16 @@ body {
 }
 
 /* Individual card */
-.card{
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* ensures all cards stretch to same height in grid row */
   border: 1px solid #eee;
   border-radius: 12px;
   overflow: hidden;
-  /*
-    overflow:hidden is important!
-    It makes sure the image doesn't
-    bleed outside the rounded corners
-  */
   transition: transform 0.2s, box-shadow 0.2s;
-  /*
-    makes the hover 
-    smooth instead of instant
-  */
 }
+
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.1);
@@ -169,7 +202,11 @@ body {
     It fills the space without stretching
   */
 }
-.card body{
+/* Let the card body take up remaining space and push footer down */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;               /* expands to fill leftover vertical space */
   padding: 16px;
 }
 .card-body h3{
@@ -177,17 +214,20 @@ body {
   color: #1a1a1a;
   margin-bottom: 8px;
 }
-.card-body p{
+/* Description paragraph can grow, but footer stays at bottom */
+.card-body p {
+  flex: 1;               /* allows paragraph to expand, pushing footer to end */
   font-size: 14px;
   color: #1a1a1a;
   line-height: 1.5;
   margin-bottom: 16px;
 }
-/* Price and button sit side by side */
+/* Footer stays anchored at bottom */
 .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;       /* extra safety to keep at bottom */
 }
 .price {
   font-size:18px;
@@ -200,10 +240,151 @@ body {
   border: none;
   padding: 8px 18px;
   font-size: 14px;
-  font-weight: 600
+  font-weight: 600;
   border-radius: 20px;
   cursor: pointer;
 }
 .card-btn:hover {
   background-color: #e03d00;
+}
+/*Features- Section */
+.features {
+  background-color: #fff5f0;
+  padding: 60px 40px;
+}
+.features-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.features-header h2 {
+  font-size: 36px;
+  color:  #ff4500;
+  margin-bottom: 8px;
+}
+.features-header p{
+  font-size: 16px;
+  color: #888;
+}
+/* Grid — 3 feature boxes per row */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:24px;
+}
+/* Individual feature box */
+.feature-box{
+  background-color:#fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid #ffe0d0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 28px rgba(0,0,0,0.08);
+}
+/* Big emoji icon */
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 18px;
+}
+.feature-box h3{
+  font-size: 18px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.feature-box p{
+  font-size: 14px;
+  line-height: 1.6;
+  color: #777;
+}
+/* =============================================
+   RESPONSIVE — ALL MEDIA QUERIES IN ONE PLACE
+============================================= */
+/* TABLET */
+@media (max-width: 1024px) {
+
+  /* tighten navbar padding on smaller screens */
+  .navbar { padding: 14px 24px; }
+  .nav-links { gap: 20px; }
+  .nav-cart {
+    display: flex;  /* keep cart visible on mobile even when nav links hide */
+  }
+  .cart-icon {
+    font-size: 20px;  /* slightly smaller on mobile */
+  }
+  
+  /* reduce hero padding and font size */
+  .hero { padding: 60px 30px; }
+  .hero-content h1 { font-size: 38px; }
+
+  /* menu becomes 2 columns instead of 3 */
+  .menu { padding: 50px 30px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* features becomes 2 columns instead of 3 */
+  .features { padding: 50px 30px; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  /* less padding on navbar */
+  .navbar { padding: 14px 20px; }
+
+  /* hide nav links on mobile — no space for them */
+  .nav-links { display: none; }
+  .nav-btn { display: none; }
+  .nav-logo h1 { font-size: 20px; }
+
+  /* hero gets smaller padding and font */
+  .hero { padding: 50px 20px; min-height: auto; }
+  .hero-content h1 { font-size: 30px; }
+  .hero-content p { font-size: 15px; }
+
+  /* buttons stack vertically instead of side by side */
+  .hero-buttons { flex-direction: column; gap: 12px; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+
+  /* menu becomes 1 column */
+  .menu { padding: 40px 20px; }
+  .menu-header h2 { font-size: 26px; }
+  .menu-grid { grid-template-columns: 1fr; }
+
+  /* features becomes 1 column */
+  .features { padding: 40px 20px; }
+  .features-header h2 { font-size: 26px; }
+  .features-grid { grid-template-columns: 1fr; }
+    .cart-icon {
+      font-size: 24px;
+    }
+    .cart-count {
+      min-width: 20px;
+      height: 20px;
+      font-size: 11px;
+      top: -6px;
+      right: -10px;
+    }
+  }
+
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+
+  /* even smaller font for tiny screens */
+  .hero-content h1 { font-size: 24px; }
+  .hero-content p { font-size: 14px; }
+
+  /* shorter card image on tiny phones */
+  .card img { height: 160px; }
+  .card-body h3 { font-size: 16px; }
+
+  /* slightly smaller emoji and less padding */
+  .feature-icon { font-size: 32px; }
+  .feature-box { padding: 24px 16px; }
+  .feature-box h3 { font-size: 16px; }
 }
