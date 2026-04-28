@@ -1,10 +1,9 @@
-
 /*-- RESET & BASE--*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Segoe UI', sans-serif;
 }
 body {
   background-color: #fff;
@@ -15,13 +14,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 40px;
+  padding: 10px 20px;
   background-color: #ff4500;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  height: 90px;
 }
 .nav-logo h1{
   color:#fff;
   font-size: 24px;
+  height: 40px;
+}
+
+.nav-logo img{
+  height: 80px;
+  width:90px;
 }
 .nav-links{
   list-style: none;
@@ -89,27 +95,44 @@ body {
   line-height: 1;
 }
 /*--Hero Section--*/
-.hero{
-  background-color: #fff5f0;
-  padding: 80px 40px;
+.hero {
+  min-height: 82vh;            /*flexible, not rigid */
   display: flex;
   align-items: center;
-  min-height: 500px;
+  padding: 0 8%;
+  background-image: url("../images/hero-food.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65) 20%,
+    rgba(0, 0, 0, 0.3)  45%,
+    rgba(0, 0, 0, 0)    70%
+  );
+  z-index: 0;         /*stacking control */
 }
 .hero-content {
-  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 500px;
 }
-.hero-content h1{
+.hero-content h1 {
   font-size: 48px;
-  color: #ff4500;
-  line-height: 1.2;
-  margin-bottom: 20px;
+  font-weight: bold;
 }
-.hero-content p{
-  font-size: 18px;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 32px;
+
+.hero-content p {
+  margin: 15px 0;
+  color: #ddd;
 }
 .hero-buttons{
   display: flex;
@@ -138,6 +161,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 .btn-secondary:hover{
   background-color: #ff4500;
