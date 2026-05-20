@@ -3,100 +3,168 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --brand: #ff4500;
+  --brand-dark: #e03d00;
+  --brand-light: #fff5f0;
 }
 body {
   background-color: #fff;
   color: #333;
 }
+
 /*--NAVBAR--*/
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #ff4500;
+  background-color: var(--brand);
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  height: 90px;
+  height: 70px;
 }
-.nav-logo h1{
-  color:#fff;
+.nav-logo h1 {
+  color: #fff;
   font-size: 24px;
   height: 40px;
 }
-
-.nav-logo img{
+.nav-logo img {
   height: 80px;
-  width:90px;
+  width: 90px;
 }
-.nav-links{
+.nav-links {
   list-style: none;
   display: flex;
   gap: 32px;
 }
-.nav-links a{
+.nav-links a {
   text-decoration: none;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
 }
 .nav-links a:hover {
-  color:#d0fdff;
+  color: #d0fdff;
 }
-.nav-btn{
-  background-color: #fff;
-  color: #ff4500;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 25px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.nav-btn:hover{
-  background-color: #ffe0d0;
-}
-/* Cart icon in navbar */
+
+/* ── NAV ACTIONS — wraps cart + buttons ── */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 20px;               /* comfortable space between cart and button */
+  gap: 12px;
 }
 
+/* Cart icon */
 .nav-cart {
-  position: relative;       /* anchor for absolute badge */
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-
 .cart-icon {
-  font-size: 28px;          /* larger, more prominent basket */
+  font-size: 28px;
   line-height: 1;
 }
-
 .cart-count {
   position: absolute;
   top: -8px;
   right: -12px;
   background-color: #fff;
-  color: #ff4500;
+  color: var(--brand);
   font-size: 12px;
   font-weight: 700;
   min-width: 22px;
   height: 22px;
   padding: 0 5px;
-  border-radius: 50%;       /* perfect circle */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 2px solid #ff4500; /* ties in with brand color */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 2px solid var(--brand);
   line-height: 1;
 }
+
+/* ── LOGGED OUT state: Login + Order Now ── */
+#nav-logged-out {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Hidden by default — JS shows/hides */
+#nav-logged-in {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Shared base for both nav buttons */
+.nav-btn {
+  padding: 9px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.nav-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Outline style — for Login button */
+.nav-btn--outline {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.nav-btn--outline:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+/* Solid style — for Order Now button */
+.nav-btn--solid {
+  background-color: #fff;
+  color: var(--brand);
+  border: 2px solid #fff;
+}
+.nav-btn--solid:hover {
+  background-color: var(--brand-light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Remove underline from Login anchor */
+.nav-login-link {
+  text-decoration: none;
+}
+
+/* ── LOGGED IN state: avatar + name + logout ── */
+.nav-user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255,255,255,0.6);
+  flex-shrink: 0;
+}
+.nav-user-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 /*--Hero Section--*/
 .hero {
-  min-height: 82vh;            /*flexible, not rigid */
+  min-height: 82vh;
   display: flex;
   align-items: center;
   padding: 0 8%;
@@ -106,18 +174,17 @@ body {
   background-repeat: no-repeat;
   position: relative;
 }
-
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.65) 20%,
-    rgba(0, 0, 0, 0.3)  45%,
-    rgba(0, 0, 0, 0)    70%
+    rgba(0,0,0,0.65) 20%,
+    rgba(0,0,0,0.3)  45%,
+    rgba(0,0,0,0)    70%
   );
-  z-index: 0;         /*stacking control */
+  z-index: 0;
 }
 .hero-content {
   position: relative;
@@ -129,18 +196,17 @@ body {
   font-size: 48px;
   font-weight: bold;
 }
-
 .hero-content p {
   margin: 15px 0;
   color: #ddd;
 }
-.hero-buttons{
+.hero-buttons {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
-.btn-primary{
-  background-color: #ff4500;
+.btn-primary {
+  background-color: var(--brand);
   color: #fff;
   border: none;
   padding: 14px 32px;
@@ -149,22 +215,22 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
-.btn-primary:hover{
-  background-color:#e03d00;
+.btn-primary:hover {
+  background-color: var(--brand-dark);
 }
-.btn-secondary{                               
+.btn-secondary {
   background-color: transparent;
-  color: #ff4500;
-  border: 2px solid #ff4500;
-  padding: 14px 32px;                     
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  padding: 14px 32px;
   border-radius: 25px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.btn-secondary:hover{
-  background-color: #ff4500;
+.btn-secondary:hover {
+  background-color: var(--brand);
   color: #fff;
 }
 
@@ -173,45 +239,33 @@ body {
   padding: 60px 40px;
   background-color: #fff;
 }
-
-/* Section heading in center */
 .menu-header {
   text-align: center;
   margin-bottom: 40px;
 }
-.menu-header h2{
+.menu-header h2 {
   font-size: 36px;
   color: #ff4500;
   margin-bottom: 8px;
 }
-.menu-header p{
+.menu-header p {
   font-size: 16px;
-  color:  #888;
+  color: #888;
 }
-
-/* Grid — 3 cards per row */
-.menu-grid{
+.menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  /*
-    gap: 24px adds space 
-    between cards both 
-    horizontally and vertically
-  */
 }
-
-/* Individual card */
 .card {
   display: flex;
   flex-direction: column;
-  height: 100%;          /* ensures all cards stretch to same height in grid row */
+  height: 100%;
   border: 1px solid #eee;
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.1);
@@ -220,46 +274,38 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  /*
-    object-fit: cover is like 
-    background-size: cover but for <img>
-    It fills the space without stretching
-  */
 }
-/* Let the card body take up remaining space and push footer down */
 .card-body {
   display: flex;
   flex-direction: column;
-  flex: 1;               /* expands to fill leftover vertical space */
+  flex: 1;
   padding: 16px;
 }
-.card-body h3{
+.card-body h3 {
   font-size: 18px;
   color: #1a1a1a;
   margin-bottom: 8px;
 }
-/* Description paragraph can grow, but footer stays at bottom */
 .card-body p {
-  flex: 1;               /* allows paragraph to expand, pushing footer to end */
+  flex: 1;
   font-size: 14px;
   color: #1a1a1a;
   line-height: 1.5;
   margin-bottom: 16px;
 }
-/* Footer stays anchored at bottom */
 .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;       /* extra safety to keep at bottom */
+  margin-top: auto;
 }
 .price {
-  font-size:18px;
+  font-size: 18px;
   font-weight: 700;
-  color:#ff4500;
+  color: var(--brand);
 }
 .card-btn {
-  background-color:  #ff4500;
+  background-color: var(--brand);
   color: #fff;
   border: none;
   padding: 8px 18px;
@@ -267,13 +313,15 @@ body {
   font-weight: 600;
   border-radius: 20px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 .card-btn:hover {
-  background-color: #e03d00;
+  background-color: var(--brand-dark);
 }
-/*Features- Section */
+
+/* Features Section */
 .features {
-  background-color: #fff5f0;
+  background-color: var(--brand-light);
   padding: 60px 40px;
 }
 .features-header {
@@ -282,22 +330,20 @@ body {
 }
 .features-header h2 {
   font-size: 36px;
-  color:  #ff4500;
+  color: var(--brand);
   margin-bottom: 8px;
 }
-.features-header p{
+.features-header p {
   font-size: 16px;
   color: #888;
 }
-/* Grid — 3 feature boxes per row */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:24px;
+  gap: 24px;
 }
-/* Individual feature box */
-.feature-box{
-  background-color:#fff;
+.feature-box {
+  background-color: #fff;
   border-radius: 12px;
   padding: 32px 24px;
   text-align: center;
@@ -308,106 +354,71 @@ body {
   transform: translateY(-6px);
   box-shadow: 0px 12px 28px rgba(0,0,0,0.08);
 }
-/* Big emoji icon */
 .feature-icon {
   font-size: 40px;
   margin-bottom: 18px;
 }
-.feature-box h3{
+.feature-box h3 {
   font-size: 18px;
   color: #1a1a1a;
   margin-bottom: 10px;
   font-weight: 700;
 }
-.feature-box p{
+.feature-box p {
   font-size: 14px;
   line-height: 1.6;
   color: #777;
 }
-/* =============================================
-   RESPONSIVE — ALL MEDIA QUERIES IN ONE PLACE
-============================================= */
-/* TABLET */
-@media (max-width: 1024px) {
 
-  /* tighten navbar padding on smaller screens */
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 1024px) {
   .navbar { padding: 14px 24px; }
   .nav-links { gap: 20px; }
-  .nav-cart {
-    display: flex;  /* keep cart visible on mobile even when nav links hide */
-  }
-  .cart-icon {
-    font-size: 20px;  /* slightly smaller on mobile */
-  }
-  
-  /* reduce hero padding and font size */
   .hero { padding: 60px 30px; }
   .hero-content h1 { font-size: 38px; }
-
-  /* menu becomes 2 columns instead of 3 */
   .menu { padding: 50px 30px; }
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* features becomes 2 columns instead of 3 */
   .features { padding: 50px 30px; }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-
-/* MOBILE */
 @media (max-width: 768px) {
-
-  /* less padding on navbar */
   .navbar { padding: 14px 20px; }
-
-  /* hide nav links on mobile — no space for them */
   .nav-links { display: none; }
-  .nav-btn { display: none; }
+  .nav-user-name { display: none; } /* hide "Hey, name!" on mobile, keep avatar */
+  .nav-btn { padding: 8px 14px; font-size: 13px; }
   .nav-logo h1 { font-size: 20px; }
-
-  /* hero gets smaller padding and font */
   .hero { padding: 50px 20px; min-height: auto; }
   .hero-content h1 { font-size: 30px; }
   .hero-content p { font-size: 15px; }
-
-  /* buttons stack vertically instead of side by side */
   .hero-buttons { flex-direction: column; gap: 12px; }
   .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-
-  /* menu becomes 1 column */
   .menu { padding: 40px 20px; }
   .menu-header h2 { font-size: 26px; }
   .menu-grid { grid-template-columns: 1fr; }
-
-  /* features becomes 1 column */
   .features { padding: 40px 20px; }
   .features-header h2 { font-size: 26px; }
   .features-grid { grid-template-columns: 1fr; }
-    .cart-icon {
-      font-size: 24px;
-    }
-    .cart-count {
-      min-width: 20px;
-      height: 20px;
-      font-size: 11px;
-      top: -6px;
-      right: -10px;
-    }
-  }
+  .cart-icon { font-size: 24px; }
+  .cart-count { min-width: 20px; height: 20px; font-size: 11px; top: -6px; right: -10px; }
+}
 
-
-/* SMALL PHONES */
 @media (max-width: 480px) {
-
-  /* even smaller font for tiny screens */
   .hero-content h1 { font-size: 24px; }
   .hero-content p { font-size: 14px; }
-
-  /* shorter card image on tiny phones */
   .card img { height: 160px; }
   .card-body h3 { font-size: 16px; }
-
-  /* slightly smaller emoji and less padding */
   .feature-icon { font-size: 32px; }
   .feature-box { padding: 24px 16px; }
   .feature-box h3 { font-size: 16px; }

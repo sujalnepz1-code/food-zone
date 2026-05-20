@@ -20,12 +20,30 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <div class="nav-actions">
+      
+      <!-- Cart icon (always visible) -->
       <div class="nav-cart">
         <span class="cart-icon">🛒</span>
         <span class="cart-count">0</span>
       </div>
-      <button class="nav-btn">Order Now</button>
+
+      <!--STATE 1: Logged OUT - show Login + Order Now-->
+      <div id="nav-logged-out">
+        <a href="auth.html" class="nav-login-link">
+          <button class="nav-btn nav-btn--outline">Login</button>
+        </a>
+      <button class="nav-btn nav-btn--solid" onclick="scrollToMenu()">Order Now</button>
     </div>
+  
+      <!--STATE 2: Logged IN - show Avatar + Name + Logout-->
+
+      <div id="nav-logged-in">
+        <div class="nav-user-avatar" id="nav-avatar">👤</div>
+        <span class="nav-user-name" id="nav-user-name">Kushal</span>
+        <button class="nav-btn nav-btn--outline" onclick="logout()">Logout</button>
+      </div>
+      
+    </div>  
   </nav>
   <!--END NAVBAR-->
 
@@ -171,7 +189,7 @@
     </div>
   </section>
   <footer>
-    <p>© 2024 Food Zone. All rights reserved.</p>
+    <p>© 2026 FoodZone. All rights reserved.</p>
   </footer>
   <script src="js/main.js"></script>
 </body>
