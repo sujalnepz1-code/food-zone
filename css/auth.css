@@ -1,0 +1,448 @@
+/* ============================================================
+   auth.css  —  Styles for auth.html (Login & Sign Up page)
+   FoodZone project | css/auth.css
+============================================================ */
+
+/* ── RESET & BASE ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --brand:       #ff4500;
+  --brand-dark:  #e03d00;
+  --brand-light: #fff5f0;
+  --text:        #1a1a1a;
+  --muted:       #888;
+  --border:      #e5e5e5;
+  --error:       #e53935;
+  --success:     #43a047;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 65px;
+  background-color: var(--brand);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 50px;
+  width: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.nav-logo span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.nav-home {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.nav-home:hover {
+  opacity: 1;
+}
+
+/* ── PAGE WRAPPER ── */
+.page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+/* ── AUTH CARD ── */
+.auth-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  min-height: 560px;
+}
+
+/* ── LEFT PANEL ── */
+.auth-left {
+  flex: 1;
+  background: var(--brand);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 36px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background circles */
+.auth-left::before,
+.auth-left::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+.auth-left::before {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  left: -80px;
+}
+.auth-left::after {
+  width: 200px;
+  height: 200px;
+  bottom: -60px;
+  right: -60px;
+}
+
+.auth-left .emoji {
+  font-size: 64px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-left h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-left p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.88;
+  max-width: 240px;
+  position: relative;
+  z-index: 1;
+}
+
+.left-perks {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.perk-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── RIGHT PANEL ── */
+.auth-right {
+  flex: 1;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── TAB TOGGLE ── */
+.tab-toggle {
+  display: flex;
+  background: var(--brand-light);
+  border-radius: 30px;
+  padding: 5px;
+  margin-bottom: 32px;
+}
+
+.tab-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 0;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.tab-btn.active {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.30);
+}
+
+/* ── FORM PANELS ── */
+.form-panel {
+  display: none;
+}
+.form-panel.active {
+  display: block;
+}
+
+.form-panel h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-panel .subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* ── FORM GROUPS ── */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  left: 14px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text);
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.input-wrap input:focus {
+  border-color: var(--brand);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.10);
+}
+
+.input-wrap input.error-input {
+  border-color: var(--error);
+}
+
+/* Show/hide password toggle */
+.toggle-pw {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--muted);
+  line-height: 1;
+}
+
+/* Error messages */
+.error-msg {
+  font-size: 12px;
+  color: var(--error);
+  margin-top: 5px;
+  display: none;
+}
+.error-msg.show {
+  display: block;
+}
+
+/* Forgot password link */
+.forgot {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: var(--brand);
+  text-decoration: none;
+  margin-top: -8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* ── SUBMIT BUTTON ── */
+.submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.submit-btn:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 69, 0, 0.35);
+}
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── GOOGLE BUTTON ── */
+.google-btn {
+  width: 100%;
+  padding: 11px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.google-btn:hover {
+  border-color: #aaa;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.google-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── BOTTOM LINK ── */
+.bottom-link {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 20px;
+}
+.bottom-link a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.bottom-link a:hover {
+  text-decoration: underline;
+}
+
+/* ── SUCCESS BANNER ── */
+.success-banner {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: var(--success);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+.success-banner.show {
+  display: flex;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .auth-left  { display: none; }
+  .auth-right { padding: 36px 24px; }
+}
+
+@media (max-width: 480px) {
+  .auth-right     { padding: 28px 18px; }
+  .form-panel h3  { font-size: 19px; }
+}
