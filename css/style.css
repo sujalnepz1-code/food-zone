@@ -169,10 +169,13 @@ body {
   align-items: center;
   padding: 0 8%;
   background-image: url("../images/hero-food.png");
-  background-size: cover;
-  background-position: center center;
+  background-size: 110% auto;
+  background-position: left center;
   background-repeat: no-repeat;
+  background-color: #222;
   position: relative;
+  overflow: hidden;
+  animation: hero-bg-pan 18s ease-in-out infinite alternate;
 }
 .hero::before {
   content: "";
@@ -180,11 +183,26 @@ body {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0,0,0,0.65) 20%,
-    rgba(0,0,0,0.3)  45%,
-    rgba(0,0,0,0)    70%
+    rgba(0,0,0,0.35) 18%,
+    rgba(0,0,0,0.18) 44%,
+    rgba(0,0,0,0) 72%
   );
   z-index: 0;
+  opacity: 0.7;
+  animation: hero-overlay-fade 18s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 28%),
+                    radial-gradient(circle at left center, rgba(255,120,0,0.06), transparent 20%);
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  transform: scale(1.05);
+  animation: hero-shimmer 18s ease-in-out infinite alternate;
+  z-index: 1;
 }
 .hero-content {
   position: relative;
@@ -232,6 +250,33 @@ body {
 .btn-secondary:hover {
   background-color: var(--brand);
   color: #fff;
+}
+
+@keyframes hero-bg-pan {
+  from {
+    background-position: left center;
+  }
+  to {
+    background-position: 60% center;
+  }
+}
+
+@keyframes hero-overlay-fade {
+  from {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+@keyframes hero-shimmer {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
 
 /* Menu Section */

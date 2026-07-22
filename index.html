@@ -42,7 +42,6 @@
         <span class="nav-user-name" id="nav-user-name">Kushal</span>
         <button class="nav-btn nav-btn--outline" onclick="logout()">Logout</button>
       </div>
-      
     </div>  
   </nav>
   <!--END NAVBAR-->
@@ -53,8 +52,8 @@
     <h1>Hungry? We've Got You. &#127828;</h1>
     <p>Fresh food from the best restaurants, delivered to your door in 25 minutes.</p>
     <div class="hero-buttons">
-      <button class="btn-primary">Order Now</button>
-      <button class="btn-secondary">View Menu</button>
+      <button class="btn-primary" onclick="handleOrderNow()">Order Now</button>
+      <button class="btn-secondary" onclick="scrollToMenuDirect()">View Menu</button>
     </div>
   </div>
 </section>
@@ -75,7 +74,7 @@
         <p>Experience the authentic soul of Nepal with our handcrafted, juicy momo.</p>
         <div class="card-footer">
           <span class="price">₹120</span>
-          <button class="card-btn">Add to Cart</button>
+          <button class="card-btn" onclick="handleAddToCart(this)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -87,7 +86,7 @@
         <p>Penne in a rich creamy white sauce with garlic and parmesan.</p>
         <div class="card-footer">
           <span class="price">₹179</span>
-          <button class="card-btn">Add to Cart</button>
+          <button class="card-btn" onclick="handleAddToCart(this)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -99,7 +98,7 @@
         <p>Stir-fried noodles with vegetables and soy sauce, Indo-Chinese style.</p>
         <div class="card-footer">
           <span class="price">₹179</span>
-          <button class="card-btn">Add to Cart</button>
+          <button class="card-btn" onclick="handleAddToCart(this)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -111,7 +110,7 @@
         <p>Juicy Chicken patty with lettuce, tomato, cheese and our secret sauce.</p>
         <div class="card-footer">
           <span class="price">₹199</span>
-          <button class="card-btn">Add to Cart</button>
+          <button class="card-btn" onclick="handleAddToCart(this)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -123,7 +122,7 @@
         <p>Loaded with cheese, veggies and herbs, toasted to golden perfection.</p>
         <div class="card-footer">
           <span class="price">₹149</span>
-          <button class="card-btn">Add to Cart</button>
+          <button class="card-btn" onclick="handleAddToCart(this)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -135,7 +134,7 @@
         <p>Classic tomato base with fresh mozzarella, basil and olive oil.</p>
         <div class="card-footer">
           <span class="price">₹299</span>
-          <button class="card-btn">Add to Cart</button>
+          <button class="card-btn" onclick="handleAddToCart(this)">Add to Cart</button>
         </div>
       </div>
     </div>
